@@ -1,0 +1,67 @@
+/*  Cabecalho com a declaracao do tipo abstrato de dados TipoItem       */
+/*  utilizado para representar um elemento a lista duplamente encadeada */
+/*                                                                      */
+/*  Autor: Ruy Braga Filho                                              */
+
+
+
+
+#ifndef  TIPOITEM_H
+#define  TIPOITEM_H
+
+
+
+
+/*  Definicao do tipo TipoItem, usado para representar    */
+/*  um elemento a lista duplamente encadeada.             */
+/*                                                        */
+/*  registro - Registro que será armazenado na lista.     */
+/*                                                        */
+/*  peso - Peso do registro. Usado para ordenar a lista.  */
+/*                                                        */
+class TipoItem   {
+	
+	private: 
+    
+        long   id;
+        double peso;      
+
+        
+    public:
+    
+        /*  Construtores  */
+        TipoItem();    
+        TipoItem( long id, double peso );
+    	
+    
+        /*  Método que ajusta o atributo id com */
+        /*  o valor passado como parametro.     */
+        void setID( long id );    
+        
+        /*  Método que retorna o atributo registro  */
+        long getID();
+            
+        /*  Método que ajusta o atributo peso com  */
+        /*  o valor passado como parametro.        */
+        void setPeso( double peso );    
+        
+        /*  Método que retorna o atributo peso  */
+        double getPeso();          
+
+        /* Sobrecarga de operadores relacionais */
+        bool operator<=(TipoItem& i) const;
+        bool operator>=(TipoItem& i) const;              
+};
+
+
+#endif	/* TIPOITEM_H */
+
+
+/*  Fim do cabecalho com a declaracao do tipo abstrato de dados TipoItem  */
+
+
+
+
+
+
+

@@ -1,7 +1,7 @@
-/*  Cabecalho com a declaracao do tipo abstrato de dados TipoItem       */
-/*  utilizado para representar um elemento a lista duplamente encadeada */
-/*                                                                      */
-/*  Autor: Ruy Braga Filho                                              */
+/*  Cabecalho com a declaracao do tipo abstrato de dados TipoItem        */
+/*  utilizado para representar um elemento da lista duplamente encadeada */
+/*                                                                       */
+/*  Autor: Ruy Braga Filho                                               */
 
 
 
@@ -13,10 +13,9 @@
 
 
 /*  Definicao do tipo TipoItem, usado para representar    */
-/*  um elemento a lista duplamente encadeada.             */
+/*  um elemento da lista duplamente encadeada.            */
 /*                                                        */
-/*  registro - Registro que será armazenado na lista.     */
-/*                                                        */
+/*  id - id do registro que será armazenado na lista.     */
 /*  peso - Peso do registro. Usado para ordenar a lista.  */
 /*                                                        */
 class TipoItem   {
@@ -30,15 +29,15 @@ class TipoItem   {
     public:
     
         /*  Construtores  */
-        TipoItem();    
-        TipoItem( long id, double peso );
+        TipoItem(): id(-1), peso(-1.0) {}    
+        TipoItem( long id, double peso ): id(id), peso(peso) {}
     	
     
         /*  Método que ajusta o atributo id com */
         /*  o valor passado como parametro.     */
         void setID( long id );    
         
-        /*  Método que retorna o atributo registro  */
+        /*  Método que retorna o atributo id  */
         long getID();
             
         /*  Método que ajusta o atributo peso com  */

@@ -1,18 +1,15 @@
 /*  Definicoes das funcoes do tipo abstrato de dados TipoLista.   */
 /*  Esse TAD eh implementado por meio de uma estrutura duplamente */
 /*  encadeada com nodo cabeca e cursor.                           */
+/*                                                                */
 /*  Autor: Ruy Braga Filho                                        */
 
 
 
 #include  "TipoLista.h"
-
 #include  <iostream>
 
 using std::cout;
-
-
-
 
 
 
@@ -58,8 +55,6 @@ void TipoLista<T>::clonarLista( TipoLista<T>& outraLista )  {
     this->primeiro();
 
 }  /*  Fim da definicao do método auxiliar clonarLista.  */        
-
-
 
 
 
@@ -402,7 +397,7 @@ void TipoLista<T>::mostrarLista()  {
 
 
 
-/*  Fim das definicoes das funcoes do tipo abstrato de dados TipoLista  */
+/*  Fim das definicoes dos métodos do tipo abstrato de dados TipoLista  */
 
 
 

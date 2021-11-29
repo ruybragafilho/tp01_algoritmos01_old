@@ -159,7 +159,6 @@ class TipoLista   {
 
 
 
-
 /*  Fim do cabecalho com a declaracao do tipo abstrato de dados TipoLista  */
 
 

@@ -1,23 +1,13 @@
-/*  Definicao dos metodos do tipo abstrato de dados TipoItem            */
-/*  utilizado para representar um elemento a lista duplamente encadeada */
-/*                                                                      */
-/*  Autor: Ruy Braga Filho                                              */
+/*  Definicoes dos metodos do tipo abstrato de dados TipoItem, utilizado    */
+/*  para representar um elemento da lista duplamente encadeada.             */
+/*                                                                          */
+/*  Autor: Ruy Braga Filho                                                  */
+
+
 
 #include "TipoItem.h"
 
 
-/*  Construtores  */
-TipoItem::TipoItem(){
-
-    this->id    =  -1;
-    this->peso  =  -1.0;						    
-}
-
-TipoItem::TipoItem( long id, double peso )  {
-			
-    this->id    =  id;
-    this->peso  =  peso;						
-}
   
 /*  Definicao do Método que ajusta o atributo registro  */
 /*  com o valor passado como parametro.                 */
@@ -53,3 +43,6 @@ bool TipoItem::operator<=(TipoItem& i) const  {
 bool TipoItem::operator>=(TipoItem& i) const  {
     return(  this->peso >= i.peso  );
 }
+
+
+/*  Fim das definicoes dos métodos do tipo abstrato de dados TipoItem  */

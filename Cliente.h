@@ -59,6 +59,9 @@ class Cliente   {
         /*  Método que retorna o atributo localizacao  */
         Ponto2D getLocalizacao();          
 
+        /*  Método que imprime o cliente  */
+        void imprimir();
+
         /* Sobrecarga de operadores relacionais. A comparação é feita pelo ticket da loja */
         bool operator<=(Cliente& i) const;
         bool operator>=(Cliente& i) const;              

@@ -5,6 +5,10 @@
 #include "Loja.h"
 #include "Ponto2D.h"
 
+#include <iostream>
+
+using namespace std;
+
   	
     
 /*  Método que ajusta o atributo id com */
@@ -27,6 +31,11 @@ void Loja::setLocalizacao( Ponto2D&  localizacao )  { this->localizacao = locali
         
 /*  Método que retorna o atributo localizacao  */
 Ponto2D Loja::getLocalizacao()  { return this->localizacao; } 
+
+/*  Método que imprime a loja  */
+void Loja::imprimir() { cout << this->id << " " 
+                             << this->estoque << " " 
+                             << "(" << this->localizacao.getX() << ", " << this->localizacao.getY() << ")"; }
 
 /* Sobrecarga de operadores relacionais. A comparação é feita pelo id da loja */
 bool Loja::operator<=(Loja& i) const  { return (this->id <= i.id); }

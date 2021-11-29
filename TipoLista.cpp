@@ -101,7 +101,7 @@ TipoLista<T>::~TipoLista()  {
         this->numElementos = -1;    
     }
 
-    cout << "\nDestrutor\n";
+    cout << "\nDestrutor\n\n";
 
 }  /*  Fim da definicao do destrutor da classe TipoLista.  */        
 
@@ -383,13 +383,14 @@ void TipoLista<T>::inserirOrdenadoDecrescente( T& item )  {
 
 /*  Metodo que mostra a lista na saida padrao */
 template <class T>
-void TipoLista<T>::mostrarLista()  {
+void TipoLista<T>::imprimir()  {
     
 
     this->primeiro();
     while( this->temMais() ) {
 
-        cout << this->getItem().getID() << " - " << this->getItem().getPeso() << "\n";
+        this->getItem().imprimir();
+        cout << "\n";
         this->proximo();
     }
 

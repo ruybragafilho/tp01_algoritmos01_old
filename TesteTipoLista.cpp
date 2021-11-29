@@ -38,10 +38,10 @@ int main( void )   {
     
 
     cout << "\n\nMostrando listaP Vazia\n" ;
-    listaP.mostrarLista();
+    listaP.imprimir();
     
     cout << "\nMostrando listaCS Vazia\n" ;     
-    listaCS.mostrarLista();
+    listaCS.imprimir();
 
   
     
@@ -61,10 +61,10 @@ int main( void )   {
 
 
     cout << "\n\nMostrando listaP - crescente\n" ;
-    listaP.mostrarLista();
+    listaP.imprimir();
     
     cout << "\n\nMostrando listaCS - decrescente\n" ;     
-    listaCS.mostrarLista(); 
+    listaCS.imprimir(); 
     
     
     cout << "\n\nTestando o construtor de copia de listas";
@@ -72,7 +72,7 @@ int main( void )   {
     
 
     cout << "\n\nMostrando clone da listaP\n" ;     
-    clone.mostrarLista();
+    clone.imprimir();
 
 
     cout << "\n\nAlterando o clone e mostrando as duas listas";
@@ -80,10 +80,10 @@ int main( void )   {
     clone.retirarDoFim();
 
     cout << "\n\nClone\n";
-    clone.mostrarLista();
+    clone.imprimir();
 
     cout << "\n\nListaP\n";
-    listaP.mostrarLista();
+    listaP.imprimir();
 
     
     cout << "\n\nDestruir Lista";    

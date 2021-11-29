@@ -7,6 +7,10 @@
 
 #include "TipoItem.h"
 
+#include <iostream>
+
+using namespace std;
+
 
   
 /*  Definicao do Método que ajusta o atributo registro  */
@@ -33,6 +37,10 @@ void TipoItem::setPeso( double peso )   {
 double TipoItem::getPeso()   {
     return( peso );  
 }           
+
+
+/*  Método que imprime o item  */
+void TipoItem::imprimir() { cout << this->id << " " << this->peso; }
 
 
 /* Sobrecarga de operadores relacionais */

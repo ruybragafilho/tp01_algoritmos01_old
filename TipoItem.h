@@ -47,6 +47,9 @@ class TipoItem   {
         /*  Método que retorna o atributo peso  */
         double getPeso();          
 
+        /*  Método que imprime o item  */
+        void imprimir();        
+
         /* Sobrecarga de operadores relacionais */
         bool operator<=(TipoItem& i) const;
         bool operator>=(TipoItem& i) const;              

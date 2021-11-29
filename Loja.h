@@ -35,7 +35,7 @@ class Loja   {
 
         Loja( long id, 
               long  estoque, 
-              Ponto2D  localizacao ) : id(id), estoque(estoque), localizacao(localizacao) {}
+              Ponto2D&  localizacao ) : id(id), estoque(estoque), localizacao(localizacao) {}
     	
     
         /*  Método que ajusta o atributo id com */
@@ -58,6 +58,9 @@ class Loja   {
         
         /*  Método que retorna o atributo localizacao  */
         Ponto2D getLocalizacao();          
+
+        /*  Método que imprime a loja  */
+        void imprimir();
 
         /* Sobrecarga de operadores relacionais. A comparação é feita pelo id da loja */
         bool operator<=(Loja& i) const;

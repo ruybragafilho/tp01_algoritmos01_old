@@ -5,6 +5,10 @@
 #include "Cliente.h"
 #include "Ponto2D.h"
 
+#include <iostream>
+
+using namespace std;
+
   	
     
 /*  Método que ajusta o atributo id com */
@@ -27,6 +31,11 @@ void Cliente::setLocalizacao( Ponto2D&  localizacao )  { this->localizacao = loc
         
 /*  Método que retorna o atributo localizacao  */
 Ponto2D Cliente::getLocalizacao()  { return this->localizacao; } 
+
+/*  Método que imprime o cliente  */
+void Cliente::imprimir() { cout << this->id << " " 
+                                << this->ticket << " " 
+                                << "(" << this->localizacao.getX() << ", " << this->localizacao.getY() << ")"; }
 
 /* Sobrecarga de operadores relacionais. A comparação é feita pelo ticket do cliente */
 bool Cliente::operator<=(Cliente& i) const  { return (this->ticket <= i.ticket); }

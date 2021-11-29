@@ -148,7 +148,7 @@ class TipoLista   {
         void inserirOrdenadoDecrescente( T& item );
 
         /*  Metodo que mostra a lista na saida padrao */
-        void mostrarLista();        
+        void imprimir();        
 };
 
 

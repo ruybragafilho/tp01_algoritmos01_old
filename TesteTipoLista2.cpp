@@ -32,10 +32,10 @@ int main( void )   {
     TipoLista<TipoItem> clone;
 
     cout << "\n\nMostrando lista 0 Vazia\n" ;
-    ARRAY[0].mostrarLista();
+    ARRAY[0].imprimir();
     
     cout << "\nMostrando lista 1 Vazia\n" ;     
-    ARRAY[1].mostrarLista();
+    ARRAY[1].imprimir();
 
   
     
@@ -48,7 +48,7 @@ int main( void )   {
 
 
     cout << "\n\nMostrando lista 0 - crescente\n" ;
-    ARRAY[0].mostrarLista();
+    ARRAY[0].imprimir();
     
 
     cout << "\n\nTestando o operador de atribuição de listas";    
@@ -56,7 +56,7 @@ int main( void )   {
     TipoLista<TipoItem> clone2 = ARRAY[0];
 
     cout << "\n\nMostrando clone da lista 0\n" ;     
-    clone.mostrarLista();
+    clone.imprimir();
 
 
     cout << "\n\nAlterando o clone e mostrando as duas ARRAYs";
@@ -64,14 +64,14 @@ int main( void )   {
     clone.retirarDoFim();
 
     cout << "\n\nClone\n";
-    clone.mostrarLista();
+    clone.imprimir();
 
     cout << "\n\nLista 0\n";
-    ARRAY[0].mostrarLista();
+    ARRAY[0].imprimir();
 
 
     cout << "\n\nClone 02\n";
-    clone2.mostrarLista();
+    clone2.imprimir();
 
 
     delete[] ARRAY;

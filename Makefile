@@ -11,7 +11,8 @@ CPPFLAGS = -Wall   -Werror
 
 
 
-
+Cliente:  $(SOURCE_DIR)/Cliente.h  $(SOURCE_DIR)/Cliente.cpp
+	$(CPP)   $(CPPFLAGS)   -c   $(SOURCE_DIR)/Cliente.cpp   -o   $(OBJECT_DIR)/Cliente.o	
 
 
 Loja:  $(SOURCE_DIR)/Loja.h  $(SOURCE_DIR)/Loja.cpp

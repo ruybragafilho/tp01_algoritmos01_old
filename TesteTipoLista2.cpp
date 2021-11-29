@@ -51,8 +51,9 @@ int main( void )   {
     ARRAY[0].mostrarLista();
     
 
-    cout << "\n\nTestando a clonagem de listas";    
+    cout << "\n\nTestando o operador de atribuição de listas";    
     clone = ARRAY[0];
+    TipoLista<TipoItem> clone2 = ARRAY[0];
 
     cout << "\n\nMostrando clone da lista 0\n" ;     
     clone.mostrarLista();
@@ -67,6 +68,11 @@ int main( void )   {
 
     cout << "\n\nLista 0\n";
     ARRAY[0].mostrarLista();
+
+
+    cout << "\n\nClone 02\n";
+    clone2.mostrarLista();
+
 
     delete[] ARRAY;
     

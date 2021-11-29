@@ -66,8 +66,8 @@ int main( void )   {
     cout << "\n\nMostrando listaCS - decrescente\n" ;     
     listaCS.mostrarLista(); 
     
-
-    cout << "\n\nTestando a clonagem de listas";
+    
+    cout << "\n\nTestando o construtor de copia de listas";
     TipoLista<TipoItem> clone( listaP ); 
     
 
@@ -85,6 +85,7 @@ int main( void )   {
     cout << "\n\nListaP\n";
     listaP.mostrarLista();
 
+    
     cout << "\n\nDestruir Lista";    
     
     cout << "\n\n\n\nFim do teste do TAD TipoLista\n\n\n\n" ;

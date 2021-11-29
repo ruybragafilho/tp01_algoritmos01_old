@@ -41,8 +41,6 @@ void TipoLista<T>::clonarLista( TipoLista<T>& outraLista )  {
 
     T item;
 
-    this->criarListaVazia();
-
     outraLista.primeiro();
 
     while( outraLista.temMais() )   {
@@ -74,6 +72,8 @@ TipoLista<T>::TipoLista()  {
 /* Construtor de cópia da classe TipoLista. */
 template <class T>
 TipoLista<T>::TipoLista( TipoLista<T>& outraLista )  {
+
+    this->criarListaVazia();    
 
     this->clonarLista( outraLista );
 

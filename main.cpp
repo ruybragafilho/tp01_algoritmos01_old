@@ -56,19 +56,37 @@ int main()  {
     cout << "\nM: " << m << "\n\n"; 
 
 
-    /* Lojas */
+    /* Lista de lojas */
     TipoLista<Loja> loja;
     carregarLojas( loja );
     loja.imprimir();
     cout << "\n\nCarregou lojas\n\n";   
 
 
-    /* Clientes */
+    /* Lista de clientes */
     TipoLista<Cliente> cliente;
     carregarClientes( cliente );
     cliente.imprimir();
     cout << "\n\nCarregou clientes\n\n";   
+    
 
+    /* Tabela que conterá o resultado. Cada linha i da tabela representa */
+    /* a lista de clientes que foram alocados para a loja i.             */
+    cout << "\n\nCriando Tabelas\n\n";
+    TipoLista<Cliente>* resultado = new TipoLista<Cliente>[ loja.tamanhoLista() ];
+    long numLojas = loja.tamanhoLista();
+    for( long i=0; i<numLojas; ++i )  {
+        cout << "\nLoja " << i << "\n";
+        resultado[i].imprimir();
+    }
+
+
+
+
+
+
+
+    delete[] resultado;
 
     return 0;
 

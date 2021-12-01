@@ -36,18 +36,15 @@ class CasamentoEstavel  {
 
         /* Atributos - Tabelas de preferências das pessoas e dos centros de saude  */
         TipoLista<TipoItem>* tabelaPreferenciaCliente = nullptr;
-        TipoLista<Cliente>* tabelaPreferenciaLoja = nullptr;
         
         /* Método que inicializa o vector contendo estoque de cada loja */
         void inicializarEstoque();
 
         /* Metodos que geram as tabelas de preferências dos clientes e das lojas  */
         void gerarTabelaPreferenciaCliente();
-        void gerarTabelaPreferenciaLoja();
 
         /* Metodos que mostram as tabelas de preferências dos clientes e das lojas  */
         void mostrarTabelaPreferenciaCliente();
-        void mostrarTabelaPreferenciaLoja();
 
         /* Metodo que procura a loja com estoque disponivel na lista de preferencia de clientes.  */
         /* Se encontar, retorna o id da loja. Senão, retorna -1                                   */

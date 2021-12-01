@@ -22,13 +22,9 @@ CasamentoEstavel::CasamentoEstavel(  TipoLista<Cliente>* cliente,
     this->inicializarEstoque();
 
     this->gerarTabelaPreferenciaCliente();
-    this->gerarTabelaPreferenciaLoja();
 
     //cout << "\n\nTabela Cliente\n\n";
     //this->mostrarTabelaPreferenciaCliente();
-
-    //cout << "\n\nTabela Loja\n\n";
-    //this->mostrarTabelaPreferenciaLoja();
    
 }  /*  Fim da definicao do construtor da classe CasamentoEstavel.  */   
 
@@ -41,12 +37,6 @@ CasamentoEstavel::~CasamentoEstavel()  {
 
         delete[] tabelaPreferenciaCliente;
         tabelaPreferenciaCliente = nullptr;
-    }
-
-    if( tabelaPreferenciaLoja != nullptr )  {
-        
-        delete[] tabelaPreferenciaLoja;
-        tabelaPreferenciaLoja = nullptr;
     }
 
     if( estoque != nullptr )  {
@@ -129,25 +119,6 @@ void CasamentoEstavel::gerarTabelaPreferenciaCliente()  {
 
 
 
-/* Metodos que geram as tabelas de preferências das lojas */
-void CasamentoEstavel::gerarTabelaPreferenciaLoja()  {
-
-    /* Cria uma tabela onde o número de linhas é igual ao número de lojas  */
-    this->tabelaPreferenciaLoja = new TipoLista<Cliente>[ this->loja->tamanhoLista() ];
-
-    long numLojas = this->loja->tamanhoLista();
-
-    /* Para cada loja, clona a lista de preferência por clientes  */
-    /* que está ordenada de forma decrescente em função do ticket */
-    for( long idLoja=0; idLoja<numLojas; ++idLoja )  {
-
-        this->tabelaPreferenciaLoja[ idLoja ] = *(this->cliente);
-    }
-
-}  /*  Fim da definicao do metodo gerarTabelaPreferenciaLoja.  */
-
-
-
 /* Metodo que mostra a tabela de preferência dos clientes */
 void CasamentoEstavel::mostrarTabelaPreferenciaCliente()  {
 
@@ -159,20 +130,6 @@ void CasamentoEstavel::mostrarTabelaPreferenciaCliente()  {
     }
 
 }  /*  Fim da definicao do metodo mostrarTabelaPreferenciaCliente.  */
-
-
-
-/* Metodo que mostra a tabela de preferência das lojas */
-void CasamentoEstavel::mostrarTabelaPreferenciaLoja()  {
-
-    long numLojas = this->loja->tamanhoLista();
-
-    for( long idLoja=0; idLoja<numLojas; ++idLoja )  {
-        cout << idLoja << endl;
-        this->tabelaPreferenciaLoja[ idLoja ].imprimir();
-    }
-
-}  /*  Fim da definicao do metodo mostrarTabelaPreferenciaLoja.  */
 
 
 

@@ -20,6 +20,8 @@
 using std::vector;
 
 
+/* Definição da classe que representa uma instância do problema do casamento estável */
+/* e o resolve utilizando o algoritmo de Gale Shapley.                               */
 class CasamentoEstavel  {
 
     private:
@@ -51,8 +53,6 @@ class CasamentoEstavel  {
         /* Se encontar, retorna o id da loja. Senão, retorna -1                                   */
         long lojaComEstoqueDisponivel( long idCliente );
 
-        // Metodo que imprime o resultado do casamento estavel de acordo com o TP
-        void imprimirCasamentoEstavel( TipoLista<Cliente>* resultado ); 
 
     public:
 
@@ -63,8 +63,8 @@ class CasamentoEstavel  {
         /* Destrutor da classe CasamentoEstavel  */
         ~CasamentoEstavel();                   
 
-        // Metodo que implementa o algoritmo de Gale-Shapley
-        void galeShapley( TipoLista<Cliente>* resultado );                              
+        /* Metodo que implementa o algoritmo de Gale-Shapley  */
+        void galeShapley( TipoLista<Cliente>* match );                              
  
 };
 

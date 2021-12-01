@@ -7,7 +7,7 @@
 
 #include <iostream>
 
-using namespace std;
+using std::cout;
 
   	
     
@@ -33,9 +33,7 @@ void Cliente::setLocalizacao( Ponto2D&  localizacao )  { this->localizacao = loc
 Ponto2D Cliente::getLocalizacao()  { return this->localizacao; } 
 
 /*  Método que imprime o cliente  */
-void Cliente::imprimir() { cout << this->id << " " 
-                                << this->ticket << " " 
-                                << "(" << this->localizacao.getX() << ", " << this->localizacao.getY() << ")"; }
+void Cliente::imprimir() { cout << this->id; }
 
 /* Sobrecarga de operadores relacionais. A comparação é feita pelo ticket do cliente */
 bool Cliente::operator<=(Cliente& i) const  { return (this->ticket <= i.ticket); }

@@ -14,7 +14,10 @@
 #include <string>
 #include <cmath>
 
-using namespace std;
+using std::cout;
+using std::cin;
+using std::endl;
+using std::string;
 
 
 
@@ -44,6 +47,12 @@ double calcularTicket( long scoreEstado,
                        long idade );
 
 
+/* Prototipo da função que imprime o resultado do casamento estavel de acordo com o TP.  */
+/* A função imprime a lista de clientes de cada loja.                                    */
+void imprimirCasamentoEstavel( TipoLista<Cliente>* match,
+                               long numLojas );                        
+
+
 
 /* Definição da função main */
 int main()  {
@@ -53,40 +62,30 @@ int main()  {
     long n;
     long m;
     carregarDimensoesGrid( n, m );
-    cout << "\n\nN: " << n;
-    cout << "\nM: " << m << "\n\n"; 
-
 
     /* Lista de lojas */
     TipoLista<Loja> loja;
     carregarLojas( loja );
-    loja.imprimir();
-    cout << "\n\nCarregou lojas\n\n";   
-
 
     /* Lista de clientes */
     TipoLista<Cliente> cliente;
     carregarClientes( cliente );
-    cliente.imprimir();
-    cout << "\n\nCarregou clientes\n\n";   
-    
+   
 
     /* Tabela que conterá o resultado. Cada linha i da tabela representa */
     /* a lista de clientes que foram alocados para a loja i.             */
-    cout << "\n\nCriando Tabelas\n\n";
     TipoLista<Cliente>* match = new TipoLista<Cliente>[ loja.tamanhoLista() ];
-    long numLojas = loja.tamanhoLista();
-    for( long i=0; i<numLojas; ++i )  {
-        cout << "\nLoja " << i << "\n";
-        match[i].imprimir();
-    }
 
-
+    /* Criando uma instância do casamento estável */
     CasamentoEstavel ce( &cliente, &loja );
 
+    /* Executa o algoritmo de Gale-Shapley */
+    ce.galeShapley( match );
 
+    /* Imprime o resultado */
+    imprimirCasamentoEstavel( match, loja.tamanhoLista() );
 
-
+    /* Desalocando a tabela com o resultado do casamento estável */
     delete[] match;
 
     return 0;
@@ -165,7 +164,6 @@ void carregarClientes( TipoLista<Cliente>& cliente )  {
                                    idade ), 
                    p );
 
-        //cliente.inserirNoFim( c );
         cliente.inserirOrdenadoDecrescente( c );
     }    
 
@@ -211,3 +209,18 @@ double calcularTicket( long scoreEstado,
     return ( abs(60 - idade) + scoreEstado) / static_cast<double>(scoreTipoPagamento);
 
 }  /* Fim da definição da função calcularTicket */
+
+
+
+/* Definição da função que imprime o resultado do casamento estavel de acordo com o TP.  */
+/* A função imprime a lista de clientes de cada loja.                                    */
+void imprimirCasamentoEstavel( TipoLista<Cliente>* match,
+                               long numLojas )  {
+
+    for( long i=0; i<numLojas; ++i )  {
+
+        cout << i << endl;
+        match[i].imprimir();
+    }
+
+}  /* Fim da definição da função imprimirCasamentoEstavel */                        

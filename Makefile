@@ -15,7 +15,7 @@ Compile:  Ponto2D  TipoItem  Loja  Cliente  Principal
 	$(CPP)   -o   $(BIN_DIR)/tp1   $(OBJECT_DIR)/Ponto2D.o   $(OBJECT_DIR)/TipoItem.o   $(OBJECT_DIR)/Loja.o   $(OBJECT_DIR)/Cliente.o   $(OBJECT_DIR)/CasamentoEstavel.o   $(OBJECT_DIR)/main.o
 
 run:  $(BIN_DIR)/tp1
-	$(BIN_DIR)/tp1 < caso_teste_01.txt
+	$(BIN_DIR)/tp1 < caso_teste_04.txt
 
 
 

@@ -24,11 +24,11 @@ CasamentoEstavel::CasamentoEstavel(  TipoLista<Cliente>* cliente,
     this->gerarTabelaPreferenciaCliente();
     this->gerarTabelaPreferenciaLoja();
 
-    cout << "\n\nTabela Cliente\n\n";
-    this->mostrarTabelaPreferenciaCliente();
+    //cout << "\n\nTabela Cliente\n\n";
+    //this->mostrarTabelaPreferenciaCliente();
 
-    cout << "\n\nTabela Loja\n\n";
-    this->mostrarTabelaPreferenciaLoja();
+    //cout << "\n\nTabela Loja\n\n";
+    //this->mostrarTabelaPreferenciaLoja();
    
 }  /*  Fim da definicao do construtor da classe CasamentoEstavel.  */   
 
@@ -65,13 +65,13 @@ void CasamentoEstavel::inicializarEstoque()  {
     long numeroDeLojas = this->loja->tamanhoLista();
     long idLoja;
 
-    // Aloca o vector que armazenará o estoque de cada loja.
-    // Esse vector será usado para acessar o estoque a um custo O(1)
+    /* Aloca o vector que armazenará o estoque de cada loja.          */
+    /* Esse vector será usado para acessar o estoque a um custo O(1)  */
     this->estoque = new vector< long >( numeroDeLojas );
 
-    // Percorre a lista de lojas para obter o seu estoque
-    // e carregá-lo para o vector contendo os estoques.
-    // A posição i do vector conterá o estoque da loja i.
+    /* Percorre a lista de lojas para obter o seu estoque  */
+    /* e carregá-lo para o vector contendo os estoques.    */
+    /* A posição i do vector conterá o estoque da loja i.  */
     this->loja->primeiro();
     for( idLoja=0; idLoja<numeroDeLojas; ++idLoja ) {
 
@@ -92,7 +92,7 @@ void CasamentoEstavel::inicializarEstoque()  {
 /* Metodos que geram as tabelas de preferências dos clientes */
 void CasamentoEstavel::gerarTabelaPreferenciaCliente()  {
 
-    // Cria uma tabela onde o número de linhas é igual ao número de clientes
+    /* Cria uma tabela onde o número de linhas é igual ao número de clientes  */
     this->tabelaPreferenciaCliente = new TipoLista<TipoItem>[ this->cliente->tamanhoLista() ];
 
     long idCliente;
@@ -101,15 +101,15 @@ void CasamentoEstavel::gerarTabelaPreferenciaCliente()  {
     Loja l;
     
 
-    // Percorre a lista de clientes
+    /* Percorre a lista de clientes  */
     this->cliente->primeiro();
     while( this->cliente->temMais() ) {
 
         c = this->cliente->getItem();
         idCliente = c.getID();
 
-        // Para cada cliente, percorre a lista de lojas, inserindo-as na lista de preferência do cliente, 
-        // de forma ordenada decrescente, em função da distância da loja aa casa do cliente.
+        /* Para cada cliente, percorre a lista de lojas, inserindo-as na lista de preferência do cliente,  */
+        /* de forma ordenada decrescente, em função da distância da loja aa casa do cliente.               */
         this->loja->primeiro();
         while( this->loja->temMais() ) {
     
@@ -132,13 +132,13 @@ void CasamentoEstavel::gerarTabelaPreferenciaCliente()  {
 /* Metodos que geram as tabelas de preferências das lojas */
 void CasamentoEstavel::gerarTabelaPreferenciaLoja()  {
 
-    // Cria uma tabela onde o número de linhas é igual ao número de lojas
+    /* Cria uma tabela onde o número de linhas é igual ao número de lojas  */
     this->tabelaPreferenciaLoja = new TipoLista<Cliente>[ this->loja->tamanhoLista() ];
 
     long numLojas = this->loja->tamanhoLista();
 
-    // Para cada loja, clona a lista de preferência por clientes
-    // que está ordenada de forma decrescente em função do ticket
+    /* Para cada loja, clona a lista de preferência por clientes  */
+    /* que está ordenada de forma decrescente em função do ticket */
     for( long idLoja=0; idLoja<numLojas; ++idLoja )  {
 
         this->tabelaPreferenciaLoja[ idLoja ] = *(this->cliente);
@@ -154,7 +154,7 @@ void CasamentoEstavel::mostrarTabelaPreferenciaCliente()  {
     long numClientes = this->cliente->tamanhoLista();
 
     for( long idCliente=0; idCliente<numClientes; ++idCliente )  {
-        cout << "\n" << idCliente << "\n";
+        cout << idCliente << endl;
         this->tabelaPreferenciaCliente[ idCliente ].imprimir();
     }
 
@@ -168,9 +168,10 @@ void CasamentoEstavel::mostrarTabelaPreferenciaLoja()  {
     long numLojas = this->loja->tamanhoLista();
 
     for( long idLoja=0; idLoja<numLojas; ++idLoja )  {
-        cout << "\n" << idLoja << "\n";
+        cout << idLoja << endl;
         this->tabelaPreferenciaLoja[ idLoja ].imprimir();
     }
+
 }  /*  Fim da definicao do metodo mostrarTabelaPreferenciaLoja.  */
 
 
@@ -181,8 +182,8 @@ long CasamentoEstavel::lojaComEstoqueDisponivel( long idCliente )  {
 
     this->tabelaPreferenciaCliente[ idCliente ].primeiro();
         
-    // Percorre a lista de lojas da tabela de preferência do cliente i
-    // até encontrar uma com estoque disponível para atender esse cliente
+    /* Percorre a lista de lojas da tabela de preferência do cliente i     */
+    /* até encontrar uma com estoque disponível para atender esse cliente  */
     while( this->tabelaPreferenciaCliente[ idCliente ].temMais() )  {
  
         if( this->estoque->at( this->tabelaPreferenciaCliente[ idCliente ].getItem().getID() ) > 0 )  {
@@ -196,3 +197,48 @@ long CasamentoEstavel::lojaComEstoqueDisponivel( long idCliente )  {
     return -1;        
 
 }  /*  Fim da definicao do metodo lojaComEstoqueDisponivel.  */
+
+
+
+/* Metodo que implementa o algoritmo de Gale-Shapley  */
+void CasamentoEstavel::galeShapley( TipoLista<Cliente>* match )  {
+
+    long idCliente;
+    long idLoja;
+
+
+    /*** loop do algoritmo Gale_Shapley ***/
+
+    /* Percorre a lista de clientes, que está ordenada de forma decrescente  */
+    /* em função do ticket                                                   */
+    this->cliente->primeiro();
+    while( this->cliente->temMais() )  {
+
+        /* Obtem o ID do cliente atual  */
+        idCliente = this->cliente->getItem().getID();        
+
+        /* Localiza a primeira loja com estoque disponível na lista de  */
+        /* preferência do cliente                                       */
+        idLoja = this->lojaComEstoqueDisponivel( idCliente );
+
+        /* Se localizar uma loja com estoque disponivel na lista de preferencia  */
+        /* do cliente, decrementa o estoque dessa loja e registra o match        */
+        if( idLoja > -1 )  {
+
+            --( this->estoque->at( idLoja ) );
+
+            Cliente c = this->cliente->getItem();
+            match[ idLoja ].inserirNoFim( c );
+        } 
+
+        /* Se nao localizar nenhuma loja com estoque disponível na lista de preferencia do cliente, */
+        /* deu reject. Nesse caso, nao sera necessario verificar se a loja prefere o cliente,       */
+        /* pois a todos as lojas teem a mesma lista de preferencia de clientes e a lista de         */
+        /* clientes eh varrida de acordo com a preferencia da loja, do cliente de maior ticket      */
+        /* para a de menor ticket.                                                                  */
+        
+        /* Vai para o próximo cliente  */
+        this->cliente->proximo();
+    }
+
+}  /*  Fim da definicao do metodo galeShapley.  */ 

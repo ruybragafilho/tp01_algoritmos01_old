@@ -9,7 +9,7 @@
 
 #include <iostream>
 
-using namespace std;
+using std::cout;
 
 
   
@@ -40,7 +40,7 @@ double TipoItem::getPeso()   {
 
 
 /*  Método que imprime o item  */
-void TipoItem::imprimir() { cout << this->id << " " << this->peso; }
+void TipoItem::imprimir() { cout << this->id; }
 
 
 /* Sobrecarga de operadores relacionais */

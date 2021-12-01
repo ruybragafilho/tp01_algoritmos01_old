@@ -7,7 +7,7 @@
 
 #include <iostream>
 
-using namespace std;
+using std::cout;
 
   	
     
@@ -33,9 +33,7 @@ void Loja::setLocalizacao( Ponto2D&  localizacao )  { this->localizacao = locali
 Ponto2D Loja::getLocalizacao()  { return this->localizacao; } 
 
 /*  Método que imprime a loja  */
-void Loja::imprimir() { cout << this->id << " " 
-                             << this->estoque << " " 
-                             << "(" << this->localizacao.getX() << ", " << this->localizacao.getY() << ")"; }
+void Loja::imprimir() { cout << this->id; }
 
 /* Sobrecarga de operadores relacionais. A comparação é feita pelo id da loja */
 bool Loja::operator<=(Loja& i) const  { return (this->id <= i.id); }

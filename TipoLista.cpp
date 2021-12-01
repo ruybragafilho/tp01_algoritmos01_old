@@ -10,6 +10,7 @@
 #include  <iostream>
 
 using std::cout;
+using std::endl;
 
 
 
@@ -382,8 +383,13 @@ void TipoLista<T>::imprimir()  {
     while( this->temMais() ) {
 
         this->getItem().imprimir();
-        cout << "\n";
         this->proximo();
+
+        if(this->temMais()) {
+            cout << " ";
+        } else {
+            cout << endl;
+        }
     }
 
 }  /*  Fim da definicao do metodo mostrarLista.  */

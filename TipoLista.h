@@ -51,9 +51,9 @@ class TipoLista   {
 
     private:
 
-        TipoCelula<T>* nodoCabeca;
-        TipoCelula<T>* cursor;
-        long numElementos;
+        TipoCelula<T>* nodoCabeca = nullptr;
+        TipoCelula<T>* cursor = nullptr;
+        long numElementos = -1;
 
 
         /* Metodo auxiliar que cria uma lista vazia */

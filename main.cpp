@@ -8,6 +8,7 @@
 #include "Loja.h"
 #include "Cliente.h"
 #include "TipoLista.h"
+#include "CasamentoEstavel.h"
 
 #include <iostream>
 #include <string>
@@ -73,20 +74,20 @@ int main()  {
     /* Tabela que conterá o resultado. Cada linha i da tabela representa */
     /* a lista de clientes que foram alocados para a loja i.             */
     cout << "\n\nCriando Tabelas\n\n";
-    TipoLista<Cliente>* resultado = new TipoLista<Cliente>[ loja.tamanhoLista() ];
+    TipoLista<Cliente>* match = new TipoLista<Cliente>[ loja.tamanhoLista() ];
     long numLojas = loja.tamanhoLista();
     for( long i=0; i<numLojas; ++i )  {
         cout << "\nLoja " << i << "\n";
-        resultado[i].imprimir();
+        match[i].imprimir();
     }
 
 
+    CasamentoEstavel ce( &cliente, &loja );
 
 
 
 
-
-    delete[] resultado;
+    delete[] match;
 
     return 0;
 
@@ -164,7 +165,8 @@ void carregarClientes( TipoLista<Cliente>& cliente )  {
                                    idade ), 
                    p );
 
-        cliente.inserirNoFim( c );
+        //cliente.inserirNoFim( c );
+        cliente.inserirOrdenadoDecrescente( c );
     }    
 
 }  /* Fim da definição da função carregarClientes */

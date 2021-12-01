@@ -63,8 +63,6 @@ TipoLista<T>::TipoLista()  {
 
     this->criarListaVazia();
 
-    cout << "\nConstrutor Padrao\n";
-
 }  /*  Fim da definicao do construtor padrão da classe TipoLista.  */
 
 
@@ -76,8 +74,6 @@ TipoLista<T>::TipoLista( TipoLista<T>& outraLista )  {
     this->criarListaVazia();    
 
     this->clonarLista( outraLista );
-
-    cout << "\nConstrutor de copia\n";    
 
 }  /*  Fim da definicao do construtor de cópia da classe TipoLista.  */        
 
@@ -97,11 +93,9 @@ TipoLista<T>::~TipoLista()  {
           
         /* Anula a lista */
         delete( this->nodoCabeca );
-        this->cursor = this->nodoCabeca = NULL;
+        this->cursor = this->nodoCabeca = nullptr;
         this->numElementos = -1;    
-    }
-
-    cout << "\nDestrutor\n\n";
+    }    
 
 }  /*  Fim da definicao do destrutor da classe TipoLista.  */        
 
@@ -115,9 +109,7 @@ TipoLista<T>& TipoLista<T>::operator=( TipoLista<T>& outraLista )  {
 
         this->clonarLista( outraLista );
     }    
-
-    cout << "\nOperador de atribuicao\n";
-
+    
     return *this;
 
 }  /* Fim da definição da sobrecarga do operador de atribuição para a classe TipoLista */

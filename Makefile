@@ -11,8 +11,8 @@ CPPFLAGS = -Wall   -Werror
 
 
 
-Compile:  Ponto2D  Loja  Cliente  Principal
-	$(CPP)   -o   $(BIN_DIR)/tp1   $(OBJECT_DIR)/Ponto2D.o   $(OBJECT_DIR)/Loja.o   $(OBJECT_DIR)/Cliente.o   $(OBJECT_DIR)/main.o
+Compile:  Ponto2D  TipoItem  Loja  Cliente  Principal
+	$(CPP)   -o   $(BIN_DIR)/tp1   $(OBJECT_DIR)/Ponto2D.o   $(OBJECT_DIR)/TipoItem.o   $(OBJECT_DIR)/Loja.o   $(OBJECT_DIR)/Cliente.o   $(OBJECT_DIR)/CasamentoEstavel.o   $(OBJECT_DIR)/main.o
 
 run:  $(BIN_DIR)/tp1
 	$(BIN_DIR)/tp1 < caso_teste_01.txt
@@ -21,8 +21,12 @@ run:  $(BIN_DIR)/tp1
 
 
 
-Principal:  Ponto2D  Loja  Cliente  $(SOURCE_DIR)/main.cpp
+Principal:  Ponto2D  Loja  Cliente CasamentoEstavel  $(SOURCE_DIR)/main.cpp
 	$(CPP)   $(CPPFLAGS)   -c   $(SOURCE_DIR)/main.cpp   -o   $(OBJECT_DIR)/main.o
+
+
+CasamentoEstavel:  $(SOURCE_DIR)/CasamentoEstavel.h  $(SOURCE_DIR)/CasamentoEstavel.cpp
+	$(CPP)   $(CPPFLAGS)   -c   $(SOURCE_DIR)/CasamentoEstavel.cpp   -o   $(OBJECT_DIR)/CasamentoEstavel.o	
 
 
 Cliente:  $(SOURCE_DIR)/Cliente.h  $(SOURCE_DIR)/Cliente.cpp
